@@ -8,7 +8,7 @@ namespace TripsTrapsTrull
     class Program
 
     {
-        public static void Board(int[,] moves, string type = "")
+        private static void Board(int[,] moves, string type = "")
         {
             //Mängulaud
             string[,] board = new string[10, 13]
@@ -59,7 +59,7 @@ namespace TripsTrapsTrull
             }
         }
 
-        public static void Title()
+        private static void Title()
         {
             Console.Clear();
             Console.WriteLine("MÄNG");
@@ -68,7 +68,7 @@ namespace TripsTrapsTrull
             Console.WriteLine("Mängija on X ja arvuti on O.");
         }
 
-        public static int TransX(int x)
+        private static int TransX(int x)
         {
             if (x == 1)
             {
@@ -85,7 +85,7 @@ namespace TripsTrapsTrull
             return x;
         }
 
-        public static int TransY(int y)
+        private static int TransY(int y)
         {
             if (y == 1)
             {
@@ -102,7 +102,7 @@ namespace TripsTrapsTrull
             return y;
         }
 
-        public static int[,] Push(int x, int y, int[,]arr)
+        private static int[,] Push(int x, int y, int[,]arr)
         {
             for (int i=0;i<arr.GetLength(0);i++)
             {
@@ -116,7 +116,7 @@ namespace TripsTrapsTrull
             return arr;
         }
 
-        public static bool CheckIfMarked(int [] move, int[,]moves)
+        private static bool CheckIfMarked(int [] move, int[,]moves)
         {
             int movesum = TransX(move[0]) + TransY(move[1]);
             List<int> sums = new List<int>();
@@ -133,7 +133,7 @@ namespace TripsTrapsTrull
             }
         }
 
-        public static bool CheckIfOver(int[,]moves)
+        private static bool CheckIfOver(int[,]moves)
         {
             if (moves[8, 0] != 0)
             {
@@ -142,7 +142,7 @@ namespace TripsTrapsTrull
             return false;
         }
 
-        public static bool CheckWin(int[,] playermoves)
+        private static bool CheckWin(int[,] playermoves)
         {
             List<int> sums = new List<int>();
             for (int i=0; i < playermoves.GetLength(0); i++)
@@ -189,9 +189,9 @@ namespace TripsTrapsTrull
             Title();
 
             //MÄNGIJAD
-            int[,] moves = new int[9,2];
-            int[,] usermoves = new int[9,2];
-            int[,] compmoves = new int[9,2];
+            int[,] moves = new int[9, 2];
+            int[,] usermoves = new int[9, 2];
+            int[,] compmoves = new int[9, 2];
             bool win = false;
 
             //MÄNGULAUD
